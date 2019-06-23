@@ -1,3 +1,4 @@
 {
-  "mongoURI": "YOUR_MONGO_URI"
+  "mongoURI": "YOUR_MONGO_URI",
+  "jwtSecret": "YOUR JWT SECRET"
 }
