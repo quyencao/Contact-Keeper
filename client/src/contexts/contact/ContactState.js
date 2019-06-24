@@ -41,6 +41,9 @@ const ContactState = ({ children }) => {
   };
 
   // Delete Contact
+  const deleteContact = id => {
+    dispatch({ type: DELETE_CONTACT, payload: id });
+  };
 
   // Set Current Contact
 
@@ -53,7 +56,14 @@ const ContactState = ({ children }) => {
   // Clear Filter Contact
 
   return (
-    <ContactContext.Provider value={{ contacts: state.contacts, addContact }}>
+    <ContactContext.Provider
+      value={{
+        contacts: state.contacts,
+        addContact,
+        deleteContact,
+        setCurrent
+      }}
+    >
       {children}
     </ContactContext.Provider>
   );
