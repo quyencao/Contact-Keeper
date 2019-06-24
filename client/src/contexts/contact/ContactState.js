@@ -20,14 +20,14 @@ const ContactState = ({ children }) => {
         name: "Quyen",
         email: "quyen@gmail.com",
         phone: "333-333-333",
-        type: "Personal"
+        type: "personal"
       },
       {
         id: 2,
         name: "hung",
         email: "hung@gmail.com",
         phone: "999-999-999",
-        type: "Professional"
+        type: "professional"
       }
     ]
   };
