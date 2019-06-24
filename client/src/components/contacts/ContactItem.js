@@ -3,11 +3,18 @@ import PropTypes from "prop-types";
 import ContactContext from "../../contexts/contact/contactContext";
 
 const ContactItem = ({ contact }) => {
-  const { deleteContact } = useContext(ContactContext);
+  const { deleteContact, setCurrent, clearCurrent } = useContext(
+    ContactContext
+  );
   const { id, name, email, phone, type } = contact;
 
   const handleDelete = () => {
+    clearCurrent();
     deleteContact(id);
+  };
+
+  const handleSetCurrent = () => {
+    setCurrent(contact);
   };
 
   return (
@@ -37,7 +44,9 @@ const ContactItem = ({ contact }) => {
         )}
       </ul>
       <p>
-        <button className='btn btn-dark btn-sm'>Edit</button>
+        <button className='btn btn-dark btn-sm' onClick={handleSetCurrent}>
+          Edit
+        </button>
         <button className='btn btn-danger btn-sm' onClick={handleDelete}>
           Delete
         </button>
