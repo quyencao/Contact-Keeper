@@ -25,12 +25,13 @@ const ContactState = ({ children }) => {
       {
         id: 2,
         name: "hung",
-        email: "hung@gmail.com",
+        email: "hung@yahoo.com",
         phone: "999-999-999",
         type: "professional"
       }
     ],
-    current: null
+    current: null,
+    filteredContacts: null
   };
 
   const [state, dispatch] = useReducer(ContactReducer, initialState);
@@ -62,19 +63,28 @@ const ContactState = ({ children }) => {
   };
 
   // Filter Contacts
+  const filterContacts = text => {
+    dispatch({ type: FILTER_CONTACTS, payload: text });
+  };
 
   // Clear Filter Contact
+  const clearFilter = () => {
+    dispatch({ type: CLEAR_FILTER });
+  };
 
   return (
     <ContactContext.Provider
       value={{
         contacts: state.contacts,
         current: state.current,
+        filteredContacts: state.filteredContacts,
         addContact,
         deleteContact,
         setCurrent,
         clearCurrent,
-        updateContact
+        updateContact,
+        filterContacts,
+        clearFilter
       }}
     >
       {children}
